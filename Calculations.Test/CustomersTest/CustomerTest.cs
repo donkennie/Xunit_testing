@@ -8,13 +8,22 @@ using Xunit;
 
 namespace Unit_Test.Tests.CustomersTest
 {
+
+    [Collection("Customer")]
     public class CustomerTest
     {
-        
+
+        private readonly CustomerFixture _customerFixture;
+
+        public CustomerTest(CustomerFixture customerFixture)
+        {
+            _customerFixture = customerFixture;
+        }
+
         [Fact]
         public void CheckLegitForDiscount()
         {
-            var customer = new Customer();
+            var customer = _customerFixture.Cust;
 
             Assert.InRange(customer.Age, 25, 40);
 
@@ -23,7 +32,7 @@ namespace Unit_Test.Tests.CustomersTest
         [Fact]
         public void GetOrdersByNameNotNull()
         {
-            var customer = new Customer();
+            var customer = _customerFixture.Cust;
 
             var exceptionDetails = Assert.Throws<ArgumentException>(() => customer.GetOrdersByName(null));
 

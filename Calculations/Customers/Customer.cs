@@ -20,6 +20,11 @@ namespace Unit_Test.Applications.Customers
 
         public int Age => 35;
 
+        public string GetFullName(string firstname, string lastname)
+        {
+            return $"{firstname} {lastname}";
+        }
+
     }
 
 

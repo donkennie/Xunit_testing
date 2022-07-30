@@ -18,20 +18,20 @@ namespace Unit_Test.Tests.CalculationsTest
 
 
 
-    public class CalculationTest : IClassFixture<CalculatorFixture>
+    public class CalculationTest : IDisposable
     {
 
         private readonly ITestOutputHelper _testOutputHelper;
       //  private readonly CalculatorFixture _calculatorFixture;
-       // private readonly MemoryStream memoryStream;
+        private readonly MemoryStream memoryStream;
 
         public CalculationTest(ITestOutputHelper testOutputHelper)//, CalculatorFixture calculatorFixture)
         {
             _testOutputHelper = testOutputHelper;
           //  _calculatorFixture = calculatorFixture;
-          //  _testOutputHelper.WriteLine("Constructor");
+           _testOutputHelper.WriteLine("Constructor");
 
-          //  memoryStream = new MemoryStream();
+            memoryStream = new MemoryStream();
         }
 
 
@@ -90,6 +90,10 @@ namespace Unit_Test.Tests.CalculationsTest
 
         }
 
+        public void Dispose()
+        {
+            memoryStream.Close();
 
+        }
     }
 }
