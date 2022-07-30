@@ -50,6 +50,5 @@ namespace Unit_Test.Tests.CustomersTest
             Assert.Equal(10, loyalCustomer.Discount);
         }
 
-
         }
 }

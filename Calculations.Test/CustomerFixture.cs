@@ -9,6 +9,8 @@ namespace Unit_Test.Tests
 {
     public class CustomerFixture
     {
-        public Customer Cust => new Customer();
+        //  public Customer Cust => new Customer();
+
+        public Customer Cust { get; set; } = new Customer();
     }
 }
